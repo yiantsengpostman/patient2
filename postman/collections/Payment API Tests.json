@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "c6527354-e377-421f-9ecf-b3d44472fc69",
+		"name": "Payment API Tests",
+		"description": "API for creating and managing patient information.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20739516-c6527354-e377-421f-9ecf-b3d44472fc69"
+	},
+	"item": [
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "Get all patient files",
+					"id": "f10d99ae-05c0-4025-a834-3fcffbc5ec05",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/get?all=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "all",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Get all patient files in the system."
+					},
+					"response": [
+						{
+							"id": "a4079452-23d2-4025-9217-1c5b636fe416",
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/get?all=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get"
+									],
+									"query": [
+										{
+											"key": "all",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"disabled": false,
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Content-Length",
+									"value": "105",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Date",
+									"value": "Fri, 11 Jan 2019 00:00:53 GMT",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "ETag",
+									"value": "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\"",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "X-Powered-By",
+									"value": "Express",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"Ben\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"Smith\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get patient files by last name",
+					"id": "dde71118-3e5e-4fc2-9dd3-c1ba78b0586f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/get/?firstName={{$randomLastName}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"get",
+								""
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "{{$randomLastName}}",
+									"description": "The patient file's first name (required)"
+								}
+							]
+						},
+						"description": "Retrieves all patient files with the given `firstName`."
+					},
+					"response": [
+						{
+							"id": "9dc9f4fe-46f6-4803-b1f7-178f19a6c2be",
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/get/?firstName={{$randomLastName}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get",
+										""
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "{{$randomLastName}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"disabled": false,
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Content-Length",
+									"value": "105",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Date",
+									"value": "Fri, 11 Jan 2019 00:05:34 GMT",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "ETag",
+									"value": "W/\"69-F/ktIhtM5We/sndYYNUK1vmdEnQ\"",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "X-Powered-By",
+									"value": "Express",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"{{$randomFirstName}}\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"{{$randomLastName}}\"\n  }\n]"
+						}
+					]
+				}
+			],
+			"id": "f7132654-b550-4ccf-9917-6215cc0630a9"
+		},
+		{
+			"name": "New patient file",
+			"id": "f73fede8-0204-41d1-83f7-5370c8ddf019",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[object Object]"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"create"
+					]
+				},
+				"description": "Creates a new patient file in the system. The patient file will be assigned an ID automatically. This can be found in the response."
+			},
+			"response": [
+				{
+					"id": "f256df83-1c1f-456e-b90e-12e9d1b4f91f",
+					"name": "New patient file",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[object Object]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"disabled": false,
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Content-Length",
+							"value": "101",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Date",
+							"value": "Thu, 10 Jan 2019 23:58:59 GMT",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "ETag",
+							"value": "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\"",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"firstName\": \"Ben\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete patient file",
+			"id": "6f669ed3-5e3d-4497-a177-1d9c6f4138fa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/delete?id={{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"description": "The patient file's ID"
+						}
+					]
+				},
+				"description": "Deletes a patient file from the system by `id`."
+			},
+			"response": [
+				{
+					"id": "a5528796-bdc8-42f7-9e17-3747beb63311",
+					"name": "Delete patient file",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/delete?id={{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"disabled": false,
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Content-Length",
+							"value": "64",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Date",
+							"value": "Fri, 11 Jan 2019 00:20:55 GMT",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "ETag",
+							"value": "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\"",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update patient file",
+			"id": "b3983308-249f-4052-b181-e094e28a01b7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[object Object]"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/update?id={{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"description": "The patient file's ID (required)"
+						}
+					]
+				},
+				"description": "Send the keys that you'd like to update, this can be one or more of `firstName`, `lastName` and `password`."
+			},
+			"response": [
+				{
+					"id": "eb4318ff-fc05-4e16-aae2-434e04dd5d4f",
+					"name": "Update patient file",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[object Object]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/update?id={{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"disabled": false,
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Content-Length",
+							"value": "106",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Date",
+							"value": "Fri, 11 Jan 2019 00:18:07 GMT",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "ETag",
+							"value": "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\"",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"firstName\": \"Benjamin\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"status\": \"success\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "480266fc-2834-4dc9-97a4-30720fe57b57",
+			"key": "baseUrl",
+			"value": "https://03d3ab1c-b3ee-4518-bea3-128334115aab.mock.pstmn.io",
+			"type": "string"
+		}
+	]
+}

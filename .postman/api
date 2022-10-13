@@ -1,0 +1,17 @@
+id = cfe2e698-1b2d-44d1-bed5-c60cc056c4de
+
+[relations]
+
+[relations.collections]
+rootDirectory = postman/collections
+files[] = {"id":"20739516-c6527354-e377-421f-9ecf-b3d44472fc69","path":"Payment API Tests.json","metaData":{}}
+
+[relations.collections.metaData]
+
+[relations.apiDefinition]
+rootDirectory = postman/schemas
+files[] = {"path":"index.yaml","metaData":{}}
+
+[relations.apiDefinition.metaData]
+type = openapi:3
+rootFiles[] = index.yaml
